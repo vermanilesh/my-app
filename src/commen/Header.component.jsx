@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Navbar, Nav, NavItem, NavDropdown, MenuItem } from 'react-bootstrap';
-import logo from '../logo.svg';
 
 class Header extends Component {
   render() {
@@ -12,10 +11,10 @@ class Header extends Component {
           </Navbar.Brand>
         </Navbar.Header>
         <Nav pullRight>
-          <NavItem eventKey={1} href="#">
+          <NavItem href="/signin">
             SignIn
           </NavItem>
-          <NavItem eventKey={2} href="#">
+          <NavItem >
             SignUp
           </NavItem>
           <NavDropdown eventKey={3} title="Dropdown" id="basic-nav-dropdown">
