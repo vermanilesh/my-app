@@ -2,16 +2,16 @@ import React from 'react';
 import { Form, FormGroup, ControlLabel, FormControl, Button, Grid, Col } from 'react-bootstrap';
 
 
-export const SignInForm = () => (
+export const SignInForm = (props) => (
   <Grid  className="form-grid" >
     <h4>Sign In From</h4>
-    <Form horizontal>
+    <Form horizontal onSubmit={props.onSubmit} >
       <FormGroup controlId="formHorizontalEmail">
         <Col componentClass={ControlLabel} sm={2}>
           Email
         </Col>
         <Col sm={4}>
-          <FormControl type="email" placeholder="Email" />
+          <FormControl type="email" placeholder="Email" onChange={e => props.onChange(e.target)} />
         </Col>
       </FormGroup>
 
@@ -20,7 +20,7 @@ export const SignInForm = () => (
           Password
         </Col>
         <Col sm={4}>
-          <FormControl type="password" placeholder="Password" />
+          <FormControl type="password" placeholder="Password" onChange={e => props.onChange(e.target)} />
         </Col>
       </FormGroup>
 

@@ -10,11 +10,12 @@ const getVisibleTodos = (todos, filter) => {
       return todos.filter(t => t.completed)
     case 'SHOW_ACTIVE':
       return todos.filter(t => !t.completed)
+    default:
+      return ;
   }
 }
 
 const mapStateToProps = state => {
-  debugger
   return {
     todos: getVisibleTodos(state.todoReducer, state.visibilityFilterReducer)
   }
