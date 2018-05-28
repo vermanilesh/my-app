@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { SignInForm } from './SignInForm.jsx';
 import { connect } from 'react-redux';
-import { authActions } from './actions/auth.actions.jsx'
+import { authActions } from './actions/auth.actions.jsx';
+import SearchList from '../search/containers/SearchList.jsx';
 
 class Auth extends Component {
   constructor() {
@@ -30,9 +31,7 @@ class Auth extends Component {
   render() {
     if (this.props.isLoggedIn) {
       return (
-        <div>
-          <h2> successfully logged in </h2>
-        </div>
+        <SearchList />
       )
     } else {
       return (

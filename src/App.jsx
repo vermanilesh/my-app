@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Header from './commen/Header.component.jsx';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Auth from './auth/Auth.jsx';
 import TodoComponent from './todo/index.jsx';
 
@@ -13,13 +13,13 @@ class App extends Component {
           <header>
             <Header/>
           </header>
-          <main>
+          <Switch>
             <Route exact path="/" component={Auth} />
             <Route path="/todo" component={TodoComponent} />
             <Route path="/signin" component={Auth} />
             <Route path="/signup" component={Auth} />
 
-          </main>
+          </Switch>
         </div>
       </Router>
     );
