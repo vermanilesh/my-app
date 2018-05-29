@@ -19,6 +19,11 @@ export const searchReducer = (state = DEFAULT_STATE, action) => {
         ...state,
         players: [...state.players, action.payload]
       };
+    case searchConstants.REMOVE_PLAYER:
+      return {
+        ...state,
+        players: state.players.filter((player, index) => index !== action.payload)
+      }
     default:
       return state;
   }

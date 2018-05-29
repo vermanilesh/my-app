@@ -12,7 +12,9 @@ class AddPlayer extends Component {
 
   submitForm = (event) => {
     event.preventDefault();
-    this.props.onFormSubmit(this.state.name)
+    if (this.state.name.trim().length) {
+      this.props.onFormSubmit(this.state.name);
+    }
   }
 
   render = () => (

@@ -11,6 +11,7 @@ class SearchList extends Component {
     super(props);
     this.updateFilters = this.updateFilters.bind(this);
     this.addPlayer = this.addPlayer.bind(this);
+    this.onRemovePlayer = this.onRemovePlayer.bind(this);
     this.state = {
       listItems: this.props.players,
       filters: ""
@@ -34,10 +35,16 @@ class SearchList extends Component {
     this.props.dispatch(searchActions.addPlayer(name))
   }
 
+  onRemovePlayer = (idx) => {
+    this.props.dispatch(searchActions.removePlayer(idx));
+  }
+
   render() {
     const searchListItems = this.state.listItems.map((item, index) => {
       if(item.name.toLowerCase().includes(this.state.filters.trim())) {
-        return <SearchListItem player={item} key={index}/>
+        return <SearchListItem player={item} key={index} idx={index} onRemovePlayer={this.onRemovePlayer} />
+      } else {
+        return null;
       }
     })
     return (
@@ -46,8 +53,8 @@ class SearchList extends Component {
         <Col sm={4}>
           <FormControl onChange={(event) => this.updateFilters(event)} placeholder="Search here" />
           <ListGroup>
-          {searchListItems}
-        </ListGroup>
+            {searchListItems}
+          </ListGroup>
         </Col>
       </div>
     )
